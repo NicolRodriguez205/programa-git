@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <style>
+        .Registro-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .Registro-container {
+            display: flex;
+            width: 80%;
+            max-width: 900px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .Registro-imagen {
+            flex: 1;
+            /* Corregido: Verde más claro para el fondo */
+            background-color: rgb(215, 255, 204);
+            /* Corregido: Color de texto para que contraste */
+            color: rgb(6, 58, 6);
+            text-align: center;
+            padding: 30px;
+        }
+        .Registro-imagen h1 {
+            margin-bottom: 20px;
+        }
+        .Registro-imagen img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .Registro-formulario {
+            flex: 1;
+            /* Corregido: Verde más oscuro para el fondo */
+            background-color: rgb(6, 58, 6);
+            padding: 40px;
+            text-align: center;
+        }
+        .Registro-formulario h2 {
+            margin-bottom: 20px;
+            /* Corregido: Color de texto blanco para el contraste */
+            color: white;
+        }
+        .Registro-formulario form input {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .Registro-formulario button {
+            /* Corregido: Estilo para el botón */
+            background-color: rgb(121, 235, 93);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="Registro-body">
+    <div class="Registro-container">
+        <div class="Registro-imagen">
+            <h1>Bienvenido a el fruver online</h1>
+            <img src="https://www.gestiopolis.com/wp-content/uploads/2017/10/20495223962_4ca8e33e50_b.jpg" alt="Imagen de registro">
+        </div>
+        <div class="Registro-formulario">
+            <h2>Registro</h2>
+            <form>
+                <input type="text" placeholder="Nombre" required>
+                <input type="tel" placeholder="Número de teléfono" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <input type="password" placeholder="Confirmar contraseña" required>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

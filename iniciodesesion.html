@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar a Fruver Online</title>
+<style>
+    body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    }
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 0 20px rgba(5, 5, 5, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: white
+}
+
+.login-imagen {
+    flex: 1;
+    background-color: rgb(121, 235, 93);
+    color: white;
+    text-align: center;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-imagen h1 {
+    margin-bottom: 20px;
+}
+
+.login-imagen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.login-formulario {
+    flex: 1;
+    background-color: #e0f0f0;
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-formulario form input {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-formulario form button {
+    display: block;
+    width: 80%;
+    margin: 20px auto 10px auto;
+    padding: 10px;
+    background-color: rgba(6, 58, 6);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.login-formulario form button:hover {
+    background-color: rgba(4, 40, 4);
+}
+
+.login-links { /* Se cambia el nombre de la clase para evitar conflictos */
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.login-links p {
+    margin: 5px 0; /* Agrega un pequeño espacio entre los párrafos */
+}
+
+.login-links a {
+    color: rgba(6, 58, 6);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-links a:hover {
+    text-decoration: underline;
+}
+</style>
+<head>
+    <body class="login-body">
+    <div class="login-container">
+        <div class="login-imagen">
+            <h1>Bienvenido a Fruver Online</h1>
+            <img src="https://www.gestiopolis.com/wp-content/uploads/2017/10/20495223962_4ca8e33e50_b.jpg" alt="imagen de inicio de sesión">
+        </div>
+        <div class="login-formulario">
+            <h2>Ingresar</h2>
+            <form>
+                <input type="text" placeholder="Usuario" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+            </form>
+            <div class="login-links">
+                <p>¿Olvidaste tu contraseña?<a href="recordar-contrasena.html">Recordar</a></p>
+                <p>¿No tienes cuenta? <a href="registrarse.html">Regístrate</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    </body>
+</head>
+
