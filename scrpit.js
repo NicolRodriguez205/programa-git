@@ -5,11 +5,16 @@ document.addEventListener('DOMContentLoaded', function () {
     if (formRegistrarse) {
         formRegistrarse.addEventListener('submit', function (e) {
             e.preventDefault();
-            const nombre = document.getElementById('nombre').value.trim();
-            const telefono = document.getElementById('telefono').value.trim();
-            const correo = document.getElementById('correo').value.trim();
-            const contrasena = document.getElementById('contrasena').value.trim();
-            const confirmarContrasena = document.getElementById('confirmar-contrasena').value.trim();
+            const nombre = (document.getElementById('nombre') || {}).value?.trim() || '';
+            const telefono = (document.getElementById('telefono') || {}).value?.trim() || '';
+            const correo = (document.getElementById('correo') || {}).value?.trim() || '';
+            const contrasena = (document.getElementById('contrasena') || {}).value?.trim() || '';
+            const confirmarContrasena = (document.getElementById('confirmar-contrasena') || {}).value?.trim() || '';
+
+            if (!correo || !contrasena) {
+                alert('Correo y contraseña son obligatorios');
+                return;
+            }
 
             if (contrasena !== confirmarContrasena) {
                 alert('Las contraseñas no coinciden');
@@ -23,33 +28,36 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Inicio de sesión (soporta form-login o form-iniciodesesion)
-    const formLogin = document.getElementById('form-login') || document.getElementById('form-iniciodesesion');
+    // Inicio de sesión (soporta form-iniciodesesion o form-login)
+    const formLogin = document.getElementById('form-iniciodesesion') || document.getElementById('form-login');
     if (formLogin) {
         formLogin.addEventListener('submit', function (e) {
             e.preventDefault();
+            const correoEl = document.getElementById('correo') || document.getElementById('correo-login');
+            const claveEl = document.getElementById('contrasena') || document.getElementById('contrasena-login');
+            const correo = correoEl?.value?.trim().toLowerCase() || '';
+            const contrasena = claveEl?.value?.trim() || '';
 
-            const correoInput = document.getElementById('correo');
-            const usuarioInput = document.getElementById('usuario');
-            const correo = correoInput ? correoInput.value.trim() : null;
-            const usuarioValor = usuarioInput ? usuarioInput.value.trim() : null;
-            const contrasena = (document.getElementById('contrasena') || {}).value ? document.getElementById('contrasena').value.trim() : '';
+            if (!correo || !contrasena) {
+                alert('Ingresa correo y contraseña');
+                return;
+            }
 
-            const usuarioGuardado = JSON.parse(localStorage.getItem('usuario'));
+            const usuarioGuardado = JSON.parse(localStorage.getItem('usuario') || 'null');
             if (!usuarioGuardado) {
                 alert('No hay usuarios registrados');
                 return;
             }
 
-            const validoPorCorreo = correo && correo === usuarioGuardado.correo && contrasena === usuarioGuardado.contrasena;
-            const validoPorNombre = usuarioValor && (usuarioValor === usuarioGuardado.nombre || usuarioValor === usuarioGuardado.correo) && contrasena === usuarioGuardado.contrasena;
-
-            if (validoPorCorreo || validoPorNombre) {
+            const correoGuardado = (usuarioGuardado.correo || '').toLowerCase();
+            if (correo === correoGuardado && contrasena === usuarioGuardado.contrasena) {
                 alert('Inicio de sesión exitoso');
-                window.location.href = 'index.html';
+                window.location.href = 'bienvenida.html';
             } else {
-                alert('Credenciales incorrectas');
+                alert('Correo o contraseña incorrectos');
             }
         });
     }
 });
+// ...existing code...
+

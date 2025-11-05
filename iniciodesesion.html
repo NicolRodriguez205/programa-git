@@ -5,171 +5,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingresar a Fruver Online</title>
+    <meta name="description" content="Inicia sesión en Fruver Online con tu correo y contraseña.">
     <style>
-        /* Estilos generales */
-        body {
-            margin: 0;
-            font-family: sans-serif;
-            background-color: #f0f0f0;
+        /* 🎨 CSS: Estilos y Reglas de Diseño */
+        :root {
+            --color-primario: rgb(6, 58, 6);
+            --color-secundario: rgb(121, 235, 93);
+            --color-fondo: #f5f5f5;
+            --color-texto: #333;
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         .login-body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--color-fondo);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            color: var(--color-texto);
             padding: 20px;
         }
 
+        /* Contenedor principal del Login */
         .login-container {
             display: flex;
-            width: 100%;
-            max-width: 900px;
-            box-shadow: 0 0 20px rgba(5, 5, 5, 0.2);
+            width: 90%;
+            max-width: 1000px;
             border-radius: 10px;
             overflow: hidden;
-            background-color: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background: #fff;
         }
 
+        /* Estilos para el Contenedor de Bienvenida (Oculto por defecto) */
+        #contenido-principal {
+            display: none; /* OCULTAR INICIALMENTE */
+            text-align: center;
+            padding: 50px;
+            background-color: white;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        #contenido-principal h1 {
+            color: var(--color-primario);
+            margin-bottom: 20px;
+        }
+        
+        /* Estilos del botón de Cerrar Sesión (similar al de Iniciar Sesión) */
+        #contenido-principal button {
+             /* Se ajusta para que el 100% no desborde en el contenedor grande */
+            width: 50%; 
+            max-width: 300px; 
+            margin: 20px auto 0 auto;
+        }
+
+        /* Sección de imagen */
         .login-imagen {
             flex: 1;
-            background-color: rgb(121, 235, 93);
+            background-color: var(--color-primario);
             color: white;
-            text-align: center;
-            padding: 30px;
+            padding: 40px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
         }
 
-        .login-imagen h1 {
-            margin-bottom: 20px;
-        }
+        .login-imagen h1 { margin-bottom: 20px; font-size: 2em; }
+        .login-imagen img { max-width: 100%; height: auto; border-radius: 8px; margin-top: 20px; }
 
-        .login-imagen img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
+        /* Sección de formulario */
         .login-formulario {
             flex: 1;
-            background-color: #e0f0f0;
+            background-color: #ffffff;
             padding: 40px;
-            text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .login-formulario form input {
-            display: block;
-            width: calc(100% - 20px);
-            margin: 10px auto;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        .login-formulario h2 { color: var(--color-primario); margin-bottom: 8px; text-align: center; }
+        .login-formulario .mensaje-bienvenida { color: var(--color-texto); margin-bottom: 24px; font-size: 1rem; text-align: center; }
+
+        .login-formulario form {
+            width: 80%;
+            margin: 0 auto;
         }
 
-        .login-formulario form button {
+        .login-formulario form input {
             display: block;
-            width: calc(100% - 20px);
-            margin: 20px auto 10px auto;
-            padding: 10px;
-            background-color: rgba(6, 58, 6);
-            color: white;
+            width: 100%;
+            margin: 12px 0;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-formulario form input:focus {
+            outline: none;
+            border-color: var(--color-secundario);
+            box-shadow: 0 0 6px rgba(121,235,93,0.35);
+        }
+
+        /* Estilos del botón de envío (Login) */
+        .login-formulario form button[type="submit"] {
+            background-color: var(--color-secundario);
+            color: var(--color-primario);
             border: none;
+            padding: 12px 20px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 12px;
+            width: 100%;
             transition: background-color 0.3s ease;
         }
 
-        .login-formulario form button:hover {
-            background-color: rgba(4, 40, 4);
+        .login-formulario form button[type="submit"]:hover, #contenido-principal button:hover {
+            background-color: rgb(90,190,60);
+            color: white;
         }
 
-        .login-links {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .login-links p {
-            margin: 5px 0;
-        }
-
-        .login-links a {
-            color: rgba(6, 58, 6);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .login-links a:hover {
-            text-decoration: underline;
-        }
+        .login-links { margin-top: 16px; font-size: 0.95em; text-align: center; }
+        .login-links a { color: var(--color-primario); text-decoration: none; font-weight: 600; }
+        .login-links a:hover { color: var(--color-secundario); text-decoration: underline; }
 
         .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0,0,0,0); white-space: nowrap; border: 0;
         }
 
         @media (max-width: 768px) {
-            .login-container {
-                flex-direction: column;
-                width: 95%;
-            }
-
-            .login-imagen,
-            .login-formulario {
-                flex: none;
-                width: 100%;
-            }
-
-            .login-imagen img {
-                max-width: 80%;
-            }
+            .login-container, #contenido-principal { flex-direction: column; width: 95%; max-width: 420px; }
+            .login-imagen { padding: 20px; }
+            .login-imagen h1 { font-size: 1.5em; }
+            .login-formulario { padding: 30px; }
+            .login-formulario form { width: 100%; }
         }
     </style>
 </head>
 <body class="login-body">
+    
     <div class="login-container">
         <div class="login-imagen">
             <h1>Bienvenido a Fruver Online</h1>
-            <img src="https://www.gestiopolis.com/wp-content/uploads/2017/10/20495223962_4ca8e33e50_b.jpg" alt="Ilustración de frutas y verduras frescas en una cesta.">
+            <img src="https://www.gestiopolis.com/wp-content/uploads/2017/10/20495223962_4ca8e33e50_b.jpg"
+                 alt="Variedad de frutas y verduras frescas"
+                 loading="lazy">
         </div>
-        <div class="login-formulario">
-            <h2>Ingresar</h2>
 
-            <!-- Se añadió id para que el script lo detecte (form-login o form-iniciodesesion) -->
+        <div class="login-formulario">
+            <h2>Iniciar Sesión</h2>
+            <p class="mensaje-bienvenida">Accede con tu correo y contraseña</p>
+
             <form id="form-iniciodesesion" novalidate>
-                <label for="correo" class="sr-only">Correo</label>
-                <input type="text" id="correo" name="correo" placeholder="Usuario o correo" required>
+                <label for="correo" class="sr-only">Correo electrónico</label>
+                <input type="email"
+                       id="correo"
+                       name="correo"
+                       placeholder="ejemplo@dominio.com"
+                       required
+                       autocomplete="email"
+                       aria-required="true"
+                       pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
 
                 <label for="contrasena" class="sr-only">Contraseña</label>
-                <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+                <input type="password"
+                       id="contrasena"
+                       name="contrasena"
+                       placeholder="Contraseña"
+                       required
+                       autocomplete="current-password"
+                       aria-required="true"
+                       minlength="8">
 
-                <button type="submit">Ingresar</button>
+                <button type="submit">Iniciar Sesión</button>
             </form>
 
             <div class="login-links">
-                <p>¿Olvidaste tu contraseña? <a href="recordar-contrasena.html">Recordar</a></p>
-                <p>¿No tienes cuenta? <a href="registrarse.html">Regístrate</a></p>
+                <p>¿Olvidaste tu contraseña? <a href="recordar-contrasena.html">Recuperar</a></p>
+                <p>¿No tienes cuenta? <a href="registrarse.html">Regístrate aquí</a></p>
             </div>
         </div>
     </div>
-
-    <!-- Cargar el script correcto. Si tu archivo JS se llama "script.js" cámbialo aquí -->
-    <script src="scrpit.js"></script>
+    <script src="script.js"></script>
 </body>
-</head>
 </html>
-<!-- ...existing code... -->
