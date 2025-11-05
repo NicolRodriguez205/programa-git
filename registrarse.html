@@ -2,87 +2,83 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Registro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario - Fruver Online</title>
     <style>
-        .Registro-body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .Registro-container {
-            display: flex;
-            width: 80%;
-            max-width: 900px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .Registro-imagen {
-            flex: 1;
-            /* Corregido: Verde más claro para el fondo */
-            background-color: rgb(215, 255, 204);
-            /* Corregido: Color de texto para que contraste */
-            color: rgb(6, 58, 6);
-            text-align: center;
-            padding: 30px;
-        }
-        .Registro-imagen h1 {
-            margin-bottom: 20px;
-        }
-        .Registro-imagen img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-        .Registro-formulario {
-            flex: 1;
-            /* Corregido: Verde más oscuro para el fondo */
-            background-color: rgb(6, 58, 6);
-            padding: 40px;
-            text-align: center;
-        }
-        .Registro-formulario h2 {
-            margin-bottom: 20px;
-            /* Corregido: Color de texto blanco para el contraste */
-            color: white;
-        }
-        .Registro-formulario form input {
-            display: block;
-            width: 80%;
-            margin: 10px auto;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-        }
-        .Registro-formulario button {
-            /* Corregido: Estilo para el botón */
-            background-color: rgb(121, 235, 93);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-    </style>
+        .registro-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+    .registro-container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    box-shadow: 0 0 20px rgba(5, 5, 5, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+    .registro-imagen {
+    flex: 1;
+    background-color: rgb(121, 235, 93);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+    .registro-imagen h1 {
+    margin-bottom: 20px;
+}
+    .registro-imagen img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+    .registro-formulario {
+    flex: 1;
+    background-color: green;
+    padding: 40px;
+    text-align: center;
+}
+    .registro-formulario h2{
+    margin-bottom: 20px;
+    color: rgb(6, 58, 6);
+}
+   .registro-formulario form input {
+   display: block;
+   width: 80%;
+   margin: 10px auto;
+   padding: 10px;
+   border: none;
+   border-radius: 5px;
+}
+</style>
 </head>
-<body class="Registro-body">
-    <div class="Registro-container">
-        <div class="Registro-imagen">
-            <h1>Bienvenido a el fruver online</h1>
-            <img src="https://www.gestiopolis.com/wp-content/uploads/2017/10/20495223962_4ca8e33e50_b.jpg" alt="Imagen de registro">
-        </div>
-        <div class="Registro-formulario">
-            <h2>Registro</h2>
-            <form>
-                <input type="text" placeholder="Nombre" required>
-                <input type="tel" placeholder="Número de teléfono" required>
-                <input type="email" placeholder="Correo electrónico" required>
-                <input type="password" placeholder="Contraseña" required>
-                <input type="password" placeholder="Confirmar contraseña" required>
-                <button type="submit">Registrarse</button>
+<body> <main class="registro-container" role="main"> <section class="registro-imagen"> <h1>Bienvenido a Fruver Online</h1>
+            <p>Tu lugar para frutas y verduras frescas.</p> <img src="https://www.gestiopolis.com/wp-content/uploads/2017/10/20495223962_4ca8e33e50_b.jpg" 
+                 alt="Una variedad colorida de frutas y verduras frescas, incluyendo manzanas, naranjas y pimientos."
+                 loading="lazy"> </section>
+        <section class="registro-formulario">
+            <h2>Crear Cuenta</h2> <form id="form-registrarse" novalidate aria-labelledby="form-title"> <label for="nombre">Nombre</label>
+                <input id="nombre" name="nombre" type="text" placeholder="Nombre completo" required autocomplete="name" aria-required="true">
+
+                <label for="telefono">Número de teléfono</label>
+                <input id="telefono" name="telefono" type="tel" placeholder="Ej: 300 123 4567" required autocomplete="tel" aria-required="true" pattern="[0-9]{10}"> <label for="correo">Correo electrónico</label>
+                <input id="correo" name="correo" type="email" placeholder="ejemplo@dominio.com" required autocomplete="email" aria-required="true">
+
+                <label for="contrasena">Contraseña</label>
+                <input id="contrasena" name="contrasena" type="password" placeholder="Mínimo 8 caracteres" required autocomplete="new-password" aria-required="true" minlength="8">
+
+                <label for="confirmar-contrasena">Confirmar Contraseña</label>
+                <input id="confirmar-contrasena" name="confirmar-contrasena" type="password" placeholder="Repite la contraseña" required autocomplete="new-password" aria-required="true" minlength="8">
+
+                <button type="submit" aria-label="Haga clic para registrar su nueva cuenta">
+                    Registrarse
+                </button>
+                <p style="color: white; margin-top: 15px;"><small>¿Ya tienes una cuenta? <a href="#" style="color: #79EB5D; text-decoration: none;">Inicia Sesión aquí</a></small></p>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
